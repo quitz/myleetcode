@@ -31,7 +31,7 @@ using namespace std;
             }
     a.erase(unique(a.begin(), a.end()),a.end());
     return a;
-}*/
+}
 
 vector<vector<int>> threeSum(vector<int>& nums){
     vector<vector<int>> a;
@@ -102,10 +102,11 @@ int threeSumClosest(vector<int>& nums, int target) {
         }
     }
     return a;
-}
+}*/
 int main(int argc, const char * argv[])
 {
 
+	/*
     // insert code here...
     int n,a;
     cin>>n;
@@ -118,7 +119,11 @@ int main(int argc, const char * argv[])
     
     int t;
     cin>>t;
-    cout<<threeSumClosest(r, t);
+    cout<<threeSumClosest(r, t);*/
+	//int i = 5;
+	char a = '#';
+	char i = '6';
+	cout<<int(a)<<endl;
     return 0;
 }
 

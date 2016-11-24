@@ -12,20 +12,48 @@ public:
         if(head== NULL || head->next == NULL)
             return true;
         int len=0,i=0;
-        vector<ListNode*> r;
-        ListNode *t = head;
-        
-        while(t!=NULL){
-            r.push_back(t);
-            t = t->next;
+        ListNode *s = head, *f = head;
+        while(f->next && f->next->next){
+            s = s->next;
+            f = f->next->next;
         }
-        
-        for(int i=0;i<r.size()/2;i++){
-            if(r[i]->val != r[r.size()-i-1]->val)
+        ListNode *t = reverse(s->next);
+        //pr(t);
+        s->next = t;
+        s = t;
+        while(head && s){
+            if(head->val != s->val)
                 return false;
+            head = head->next;
+            s=s->next;
         }
         return true;
         
         
+    }
+    ListNode* reverse(ListNode *head){
+        if(head==NULL || head->next == NULL)
+            return head;
+        ListNode *dom = new ListNode(0);
+        dom->next = head;
+        ListNode *prev = dom, *cur = head, *nt = cur->next;
+        while(nt){
+            ListNode *t = nt->next;
+            nt->next = prev->next;
+            prev->next = nt;
+            cur->next = t;
+            
+            nt = t;
+        }
+        return dom->next;
+        
+    }
+    
+    void pr(ListNode *head){
+        while(head){
+            cout<<head->val;
+            head = head->next;
+        }
+        cout<<"line 56"<<endl;
     }
 };

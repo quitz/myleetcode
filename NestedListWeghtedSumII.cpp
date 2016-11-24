@@ -29,7 +29,34 @@
  */
 class Solution {
 public:
-    map<int, vector<int>> l;
+    int depthSumInverse(vector<NestedInteger>& nestedList) {
+        int len = nestedList.size();
+        if(len==0) 
+            return 0;
+        int temp=0,res=0;
+        queue<NestedInteger> q;
+        for(int i=0;i<len;i++)
+            q.push(nestedList[i]);
+        
+        while(!q.empty()){
+            int s = q.size();
+            int ls = 0;
+            for(int i=0;i<s;i++){
+                NestedInteger t = q.front();
+                q.pop();
+                if(t.isInteger())
+                    ls += t.getInteger();
+                else{
+                    for(auto it:t.getList())
+                        q.push(it);
+                }
+            }
+            temp += ls;
+            res += temp;
+        }
+        return res;
+    }
+    /*map<int, vector<int>> l;
     int depthSumInverse(vector<NestedInteger>& nestedList) {
         int ml = maxLayer(nestedList,1);
         //cout<<ml<<endl;
@@ -41,6 +68,7 @@ public:
         return res;
     }
     
+
     int maxLayer(vector<NestedInteger>& nestedList, int layer){
         int len = nestedList.size();
         int max_layer = layer;
@@ -54,5 +82,5 @@ public:
             }
         }
         return max_layer;
-    }
+    }*/
 };

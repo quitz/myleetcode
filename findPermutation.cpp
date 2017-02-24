@@ -14,4 +14,14 @@ public:
         te.insert(te.begin()+t,n);
         return te;
     }
+    vector<int> findPermutation(string s) {
+        vector<int> ret;
+    for (int i = 0; i <= s.size(); ++i) {
+      if (i == s.size() || s[i] == 'I') {
+        int retLen = ret.size();
+        for (int countD = i - retLen + 1; countD > 0; --countD) ret.push_back(retLen + countD);
+      }
+    }
+    return ret;
+}   
 };

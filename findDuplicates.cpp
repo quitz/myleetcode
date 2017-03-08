@@ -12,4 +12,23 @@ public:
         }
         return ret;
     }
+
+    char* StrStr(const char *str, const char *target) {
+        char* ret;
+        if(!*target)
+            return str;
+        char *pbegin = str;
+        while(*!pbegin){
+            char *t = pbegin, *t1 = target;
+            while(*t && *t1 && *t == *t1){
+                t++;
+                t1++;
+            }
+            if(!*t1)
+                return pbegin;
+            else
+                pbegin++;
+        }
+        return nullptr;
+    }
 };

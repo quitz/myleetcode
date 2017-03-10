@@ -23,3 +23,19 @@ public:
         return res;
     }
 };
+
+int strstr(string h, string s){
+    if(s.size() == 0)
+        return 0;
+    for(int i=0;;i++){
+        for(int j=0;;j++){
+            if(j==s.size())
+                return i;
+            if(i+j == h.size())
+                return -1;
+            if(h[i+j] != s[j])
+                break;
+        }
+    }
+    return -1;
+}

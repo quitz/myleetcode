@@ -1,5 +1,4 @@
 string process(string str){
-    string ret;
     while(str.find("^") != string::npos){
         int idx = str.find("^");
         

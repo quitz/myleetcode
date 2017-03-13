@@ -25,6 +25,23 @@ public:
         return suc;
     }
 
+
+    TreeNode *findsuc(TreeNode *root, TreeNode *p){
+            if(p!=nullptr && p->right!=nullptr){
+                TreeNode *t = p->right;
+                while(t->left)
+                    t = t->left;
+                return t;
+            }
+
+            TreeNode *suc = p.parent;
+            while(suc && suc.right == p){
+                p = suc;
+                suc = suc.parent;
+            }
+            return suc;
+    }
+
     int combine(vector<int> &nums){
         int ret = 0;
         priority_queue<int, vector<int>, greater<int> > pq;

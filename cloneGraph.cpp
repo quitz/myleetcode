@@ -11,6 +11,7 @@ public:
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
         if(!node)
             return node;
+        map<UndirectedGraphNode *, UndirectedGraphNode *> mp;
         UndirectedGraphNode *tmp = new UndirectedGraphNode(node->val);
         mp[node] = tmp;
         queue<UndirectedGraphNode*> q;
@@ -31,5 +32,5 @@ public:
         return tmp;
     }
 private:
-    map<UndirectedGraphNode *, UndirectedGraphNode *> mp;
+    
 };

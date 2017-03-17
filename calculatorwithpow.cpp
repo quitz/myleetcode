@@ -28,12 +28,15 @@ int calculate(string str){
         return 0;
     str = process(str);
     stack<int> s;
+    
     char sig = '+';
     int tmp = 0,res=0;
+
     for(int i=0;i<str.length();i++){
         if(isdigit(str[i]))
             tmp = tmp*10 + str[i] - '0';
         if((!isdigit(str[i]) && str[i]!=' ') || i==str.length() - 1){
+
             if(sig == '+')
                 s.push(tmp);
             else if(sig == '-')
